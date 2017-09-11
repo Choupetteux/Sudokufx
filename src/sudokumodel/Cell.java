@@ -14,6 +14,10 @@ public class Cell implements CellValue {
 	private boolean initialValue = false;
 	private boolean[] candidates = new boolean[10];
 	
+	public Cell(Group ligne, Group colonne, Group bloc){
+		
+	}
+
 	@Override
 	public boolean isInitialValue() {
 		// TODO Auto-generated method stub

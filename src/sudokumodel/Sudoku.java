@@ -10,17 +10,22 @@ package sudokumodel;
 public class Sudoku implements SudokuModel{
 	
 	private boolean grilleInitialisee = false;
-
-	@Override
-	public void init(String grid) {
-		// TODO Auto-generated method stub
+	
+	/**
+	 * Créer une partie de Sudoku.
+	 */
+	public Sudoku(){
 		
 	}
 
 	@Override
+	public void init(String grid) {
+		// TODO Auto-generated method stub	
+	}
+
+	@Override
 	public boolean isInit() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.grilleInitialisee;
 	}
 
 	@Override
