@@ -3,6 +3,8 @@
  */
 package sudokumodel;
 
+import java.util.ArrayList;
+
 /**
  * @author ribb0001, lege0007
  *
@@ -10,6 +12,11 @@ package sudokumodel;
 public class Sudoku implements SudokuModel{
 	
 	private boolean grilleInitialisee = false;
+	private ArrayList<Group> blocs;
+	private ArrayList<Group> lines;
+	private ArrayList<Group> columns;
+	private ArrayList<Cell> cells;
+	private ArrayList<HintSolver> hints;
 	
 	/**
 	 * Créer une partie de Sudoku.
@@ -42,8 +49,7 @@ public class Sudoku implements SudokuModel{
 
 	@Override
 	public CellValue getCellValue(int cellNumber) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.cells.get(cellNumber);
 	}
 
 	@Override
@@ -75,4 +81,21 @@ public class Sudoku implements SudokuModel{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public Group getColumn(int colNumber){
+		return this.columns.get(colNumber);
+	}
+	
+	public Group getLine(int lineNumber){
+		return this.lines.get(lineNumber);
+	}
+	
+	public Group getBloc(int blocNumber){
+		return this.blocs.get(blocNumber);
+	}
+	
+	public Cell getCell(int cellNumber){
+		return this.cells.get(cellNumber);
+	}
+	
 }

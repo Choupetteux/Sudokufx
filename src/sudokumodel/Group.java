@@ -19,6 +19,16 @@ public abstract class Group {
 	 * @param sudoku
 	 */
 	public Group(int groupNumber, Sudoku sudoku){
-		
+		this.groupNumber=groupNumber;
+		this.sudoku=sudoku;
+	}
+	
+	public int getGroupNumber(){
+		return this.groupNumber;
+	}
+	
+	public Cell getCell(int cellNumber){
+		return this.sudoku.getCell(cellNumber);
+	
 	}
 }
