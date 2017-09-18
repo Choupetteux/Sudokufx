@@ -43,4 +43,16 @@ public class Cell implements CellValue {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	public Group getLine(){
+		return this.line;
+	}
+	
+	public Group getColumn(){
+		return this.column;
+	}
+	
+	public Group getBloc(){
+		return this.bloc;
+	}
 }
