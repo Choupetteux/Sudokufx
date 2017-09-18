@@ -18,6 +18,7 @@ public class Cell implements CellValue {
 	private Group line;
 	
 	public Cell(Group ligne, Group colonne, Group bloc){
+		this.value = 0;
 		this.bloc = bloc;
 		this.line = ligne;
 		this.column = colonne;
@@ -25,8 +26,12 @@ public class Cell implements CellValue {
 
 	@Override
 	public boolean isInitialValue() {
-		// TODO Auto-generated method stub
-		return false;
+		if(this.value != 0){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	@Override
 	public int getValue() {
