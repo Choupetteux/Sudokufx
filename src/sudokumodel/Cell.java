@@ -35,9 +35,9 @@ public class Cell implements CellValue {
 	}
 	@Override
 	public int getValue() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+		return this.value;
+			}
+	
 	@Override
 	public ArrayList<Integer> getCandidates() {
 		// TODO Auto-generated method stub
