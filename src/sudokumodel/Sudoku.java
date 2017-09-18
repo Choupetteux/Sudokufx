@@ -97,5 +97,4 @@ public class Sudoku implements SudokuModel{
 	public Cell getCell(int cellNumber){
 		return this.cells.get(cellNumber);
 	}
-	
 }

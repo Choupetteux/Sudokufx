@@ -13,9 +13,14 @@ public class Cell implements CellValue {
 	private int value;
 	private boolean initialValue = false;
 	private boolean[] candidates = new boolean[10];
+	private Group bloc;
+	private Group column;
+	private Group line;
 	
 	public Cell(Group ligne, Group colonne, Group bloc){
-		
+		this.bloc = bloc;
+		this.line = ligne;
+		this.column = colonne;
 	}
 
 	@Override
