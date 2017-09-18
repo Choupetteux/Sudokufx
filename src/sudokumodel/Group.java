@@ -18,7 +18,7 @@ public abstract class Group {
 	 * @param groupNumber
 	 * @param sudoku
 	 */
-	public Group(int groupNumber, Sudoku sudoku){
+	protected Group(int groupNumber, Sudoku sudoku){
 		this.groupNumber=groupNumber;
 		this.sudoku=sudoku;
 	}
