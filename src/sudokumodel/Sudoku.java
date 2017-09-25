@@ -51,13 +51,16 @@ public class Sudoku implements SudokuModel{
 
 		for(int y = 0; y < 9;y++){
 			for(int x = 0; x < 9; x++){
-				this.cells.add(new Cell(this.lines.get(x),this.columns.get(y), this.blocs.get(1)));
+				this.cells.add(new Cell(this.lines.get(y),this.columns.get(x), this.blocs.get(( ((y/3)*3)+(x/3)) )));
 			}
 		}
 	}
 
 	@Override
 	public void init(String grid) {
+		for(int i = 0; i < this.cells.size(); i++){
+			this.cells.get(i).setInitialValue(grid.charAt(i)-'0');
+		}
 		this.grilleInitialisee = true;
 	}
 

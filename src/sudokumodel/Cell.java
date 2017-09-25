@@ -60,4 +60,9 @@ public class Cell implements CellValue {
 	public Group getBloc(){
 		return this.bloc;
 	}
+
+	public void setInitialValue(int value){
+		this.value = value;
+		this.initialValue = true;
+	}
 }
