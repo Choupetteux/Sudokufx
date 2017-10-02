@@ -88,8 +88,12 @@ public class Sudoku implements SudokuModel{
 
 	@Override
 	public boolean setValue(int value, int cellNumber) {
-		// TODO Auto-generated method stub
-		return false;
+		if(this.cells.get(cellNumber).isInitialValue()){
+			return false;
+		}
+		else{
+			return this.cells.get(cellNumber).setValue(value);
+		}
 	}
 
 	@Override

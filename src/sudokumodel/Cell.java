@@ -41,12 +41,18 @@ public class Cell implements CellValue {
 	@Override
 	public ArrayList<Integer> getCandidates() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<Integer>();
 	}
+	
 	@Override
 	public boolean isError() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean res = false;
+		for(int i = 0; i < 9; i++){
+			if(this.value == this.bloc.getCell(i).getValue() || this.value == this.line.getCell(i).getValue() || this.value == this.column.getCell(i).getValue() ){
+				res = true;
+			}
+		}
+		return res;
 	}
 	
 	public Group getLine(){
@@ -60,9 +66,16 @@ public class Cell implements CellValue {
 	public Group getBloc(){
 		return this.bloc;
 	}
+	
+	public boolean setValue(int value){
+			this.value = value;
+			return true;
+		}
 
 	public void setInitialValue(int value){
 		this.value = value;
 		this.initialValue = true;
 	}
+	
+	
 }
