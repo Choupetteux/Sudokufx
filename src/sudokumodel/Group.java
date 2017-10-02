@@ -29,6 +29,11 @@ public abstract class Group {
 	
 	public Cell getCell(int cellNumber){
 		return this.sudoku.getCell(cellNumber);
+	}
 	
+	public boolean isCandidate(int value){
+		for(int i = 0; i < 9; i++){
+			
+		}
 	}
 }

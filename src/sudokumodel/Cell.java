@@ -47,8 +47,12 @@ public class Cell implements CellValue {
 	@Override
 	public boolean isError() {
 		boolean res = false;
+		//Parcourir chaque cellule et vérifier si la valeur de la cellule courante
+		//n'est pas égale à la valeur d'une cellule du bloc, de la ligne ou de la colonne.
 		for(int i = 0; i < 9; i++){
-			if(this.value == this.bloc.getCell(i).getValue() || this.value == this.line.getCell(i).getValue() || this.value == this.column.getCell(i).getValue() ){
+			if(this.value == this.bloc.getCell(i).getValue() 
+					|| this.value == this.line.getCell(i).getValue() 
+						|| this.value == this.column.getCell(i).getValue() ){
 				res = true;
 			}
 		}
@@ -76,6 +80,5 @@ public class Cell implements CellValue {
 		this.value = value;
 		this.initialValue = true;
 	}
-	
 	
 }
