@@ -47,14 +47,25 @@ public class Cell implements CellValue {
 	@Override
 	public boolean isError() {
 		boolean res = false;
-		//Parcourir chaque cellule et vérifier si la valeur de la cellule courante
-		//n'est pas égale à la valeur d'une cellule du bloc, de la ligne ou de la colonne.
+		int line = 0;
+		int bloc = 0;
+		int column = 0;
+		if(this.value == 0){
+			return res;
+		}
 		for(int i = 0; i < 9; i++){
-			if(this.value == this.bloc.getCell(i).getValue() 
-					|| this.value == this.line.getCell(i).getValue() 
-						|| this.value == this.column.getCell(i).getValue() ){
-				res = true;
+			if(this.value == this.bloc.getCell(i).getValue()){
+				bloc = bloc + 1;
 			}
+			if(this.value == this.line.getCell(i).getValue()){
+				line = line + 1;
+			}
+			if(this.value == this.column.getCell(i).getValue()){
+				column = column + 1;
+			}
+		}
+		if(bloc >= 2 || line >= 2 || column >= 2){
+			res = true;
 		}
 		return res;
 	}

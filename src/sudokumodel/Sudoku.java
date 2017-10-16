@@ -84,9 +84,11 @@ public class Sudoku implements SudokuModel{
 	public boolean isValide() {
 		boolean valide=true;
 		if (this.isFull()==true){
-			for (int i=0; i<this.blocs.size();i++){			
-				if (this.getBloc(i).checkError(i)){
-					valide=false;
+			for (int i=0; i<9;i++){	
+				for(int j = 1; j<9; j++){
+					if (this.getBloc(i).checkError(j) || this.getColumn(i).checkError(j) || this.getLine(i).checkError(j)){
+						valide=false;
+					}
 				}
 			}
 		}

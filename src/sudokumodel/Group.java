@@ -21,6 +21,7 @@ public abstract class Group {
 	protected Group(int groupNumber, Sudoku sudoku){
 		this.groupNumber=groupNumber;
 		this.sudoku=sudoku;
+		this.cells = new int[9];
 	}
 
 	public int getGroupNumber(){
@@ -28,7 +29,7 @@ public abstract class Group {
 	}
 
 	public Cell getCell(int cellNumber){		
-		return this.sudoku.getCell(cellNumber);
+		return this.sudoku.getCell(this.cells[cellNumber]);
 	}
 	/*
 	public boolean isCandidate(int value){
@@ -41,9 +42,8 @@ public abstract class Group {
 	public boolean checkError(int value){
 		boolean erreur=false;
 		int x=0;
-
 		for (int i=0; i<9;i++){
-			if(this.getCell(i).getValue()==value){
+			if(this.cells[i] == value){
 				x=x+1;
 			}
 		}
