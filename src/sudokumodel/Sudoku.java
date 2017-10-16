@@ -10,14 +10,14 @@ import java.util.ArrayList;
  *
  */
 public class Sudoku implements SudokuModel{
-	
+
 	private boolean grilleInitialisee = false;
 	private ArrayList<Group> blocs = new ArrayList<Group>();
 	private ArrayList<Group> lines = new ArrayList<Group>();
 	private ArrayList<Group> columns = new ArrayList<Group>();
 	private ArrayList<Cell> cells = new ArrayList<Cell>();
 	private ArrayList<HintSolver> hints = new ArrayList<HintSolver>();
-	
+
 	/**
 	 * Créer une partie de Sudoku.
 	 */
@@ -41,7 +41,7 @@ public class Sudoku implements SudokuModel{
 				}
 			}
 		}*/
-		
+
 		//Créer 9 Groupe
 		for(int j = 0; j < 9; j++){
 			this.blocs.add(new GroupBloc(j, this));
@@ -71,14 +71,26 @@ public class Sudoku implements SudokuModel{
 
 	@Override
 	public boolean isFull() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean full= true;
+		for (int i=0; i<this.cells.size();i++){
+			if (this.cells.get(i).getValue()==0){
+				full= false;
+			}
+		}
+		return full;
 	}
 
 	@Override
 	public boolean isValide() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean valide=true;
+		if (this.isFull()==true){
+			for (int i=0; i<this.blocs.size();i++){			
+				if (this.getBloc(i).checkError(i)){
+					valide=false;
+				}
+			}
+		}
+		return valide;
 	}
 
 	@Override
@@ -99,13 +111,13 @@ public class Sudoku implements SudokuModel{
 	@Override
 	public void computeCandidates() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void toggleCandidate(int digit, int cellNumber) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -119,19 +131,19 @@ public class Sudoku implements SudokuModel{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public Group getColumn(int colNumber){
 		return this.columns.get(colNumber);
 	}
-	
+
 	public Group getLine(int lineNumber){
 		return this.lines.get(lineNumber);
 	}
-	
+
 	public Group getBloc(int blocNumber){
 		return this.blocs.get(blocNumber);
 	}
-	
+
 	public Cell getCell(int cellNumber){
 		return this.cells.get(cellNumber);
 	}
