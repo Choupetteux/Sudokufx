@@ -52,4 +52,15 @@ public abstract class Group {
 		}
 		return erreur;
 	}
+	
+	public boolean isCandidate(int value){
+		boolean res = true;
+		for(int i = 0; i < 9; i++){
+			if(value == this.sudoku.getCell(this.cells[i]).getValue()){
+				res = false;
+			}
+		}
+		return res;
+		
+	}
 }

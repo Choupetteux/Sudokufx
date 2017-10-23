@@ -112,8 +112,9 @@ public class Sudoku implements SudokuModel{
 
 	@Override
 	public void computeCandidates() {
-		// TODO Auto-generated method stub
-
+		for(int i = 0; i < this.cells.size(); i++){
+			this.cells.get(i).computeCandidates();
+		}
 	}
 
 	@Override

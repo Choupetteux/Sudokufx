@@ -38,6 +38,17 @@ public class Cell implements CellValue {
 		return this.value;
 			}
 	
+	public void computeCandidates(){
+		for(int i = 1; i < 10; i++){
+			if(this.bloc.isCandidate(i) && this.line.isCandidate(i) && this.column.isCandidate(i)){
+				this.candidates[i] = true;
+			}
+			else{
+				this.candidates[i] = false;
+			}
+		}
+	}
+	
 	@Override
 	public ArrayList<Integer> getCandidates() {
 		// TODO Auto-generated method stub
@@ -53,19 +64,21 @@ public class Cell implements CellValue {
 		if(this.value == 0){
 			return res;
 		}
-		for(int i = 0; i < 9; i++){
-			if(this.value == this.bloc.getCell(i).getValue()){
-				bloc = bloc + 1;
+		else{
+			for(int i = 1; i < 9; i++){
+				if(this.value == this.bloc.getCell(i).getValue()){
+					bloc = bloc + 1;
+				}
+				if(this.value == this.line.getCell(i).getValue()){
+					line = line + 1;
+				}
+				if(this.value == this.column.getCell(i).getValue()){
+					column = column + 1;
+				}
 			}
-			if(this.value == this.line.getCell(i).getValue()){
-				line = line + 1;
+			if(bloc >= 2 || line >= 2 || column >= 2){
+				res = true;
 			}
-			if(this.value == this.column.getCell(i).getValue()){
-				column = column + 1;
-			}
-		}
-		if(bloc >= 2 || line >= 2 || column >= 2){
-			res = true;
 		}
 		return res;
 	}
