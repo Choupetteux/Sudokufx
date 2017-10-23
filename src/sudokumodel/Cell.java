@@ -16,7 +16,7 @@ public class Cell implements CellValue {
 	private Group bloc;
 	private Group column;
 	private Group line;
-	
+
 	public Cell(Group ligne, Group colonne, Group bloc){
 		this.value = 0;
 		this.bloc = bloc;
@@ -36,8 +36,8 @@ public class Cell implements CellValue {
 	@Override
 	public int getValue() {
 		return this.value;
-			}
-	
+	}
+
 	public void computeCandidates(){
 		for(int i = 1; i < 10; i++){
 			if(this.bloc.isCandidate(i) && this.line.isCandidate(i) && this.column.isCandidate(i)){
@@ -48,13 +48,9 @@ public class Cell implements CellValue {
 			}
 		}
 	}
-	
-	@Override
-	public ArrayList<Integer> getCandidates() {
-		// TODO Auto-generated method stub
-		return new ArrayList<Integer>();
-	}
-	
+
+
+
 	@Override
 	public boolean isError() {
 		boolean res = false;
@@ -82,27 +78,52 @@ public class Cell implements CellValue {
 		}
 		return res;
 	}
-	
+
 	public Group getLine(){
 		return this.line;
 	}
-	
+
 	public Group getColumn(){
 		return this.column;
 	}
-	
+
 	public Group getBloc(){
 		return this.bloc;
 	}
-	
+
 	public boolean setValue(int value){
-			this.value = value;
-			return true;
-		}
+		this.value = value;
+		return true;
+	}
 
 	public void setInitialValue(int value){
 		this.value = value;
 		this.initialValue = true;
 	}
-	
+
+	public boolean isCandidate(int value){
+		return this.candidates[value];
+	}
+
+	@Override
+	public ArrayList<Integer> getCandidates(){
+		ArrayList<Integer> liste= new ArrayList<Integer>();
+		for (int i=1; i<10; i++){
+			if (this.isCandidate(i)==true){
+				liste.add(i);
+			}
+		}
+
+		return liste;
+	}
+
+	public void toggleCandidate(int digit){
+		if(this.candidates[digit] == true){
+			this.candidates[digit] = false;
+		}
+		else if(this.candidates[digit] == false){
+			this.candidates[digit] = true;
+		}
+	}
 }
+

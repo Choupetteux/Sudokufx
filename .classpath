@@ -2,9 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="/home/Etudiants/ribb0001/Téléchargements/jCheckClass.jar"/>
-	<classpathentry kind="lib" path="/home/Etudiants/ribb0001/Téléchargements/sudokufx.jar"/>
-	<classpathentry kind="lib" path="/home/Etudiants/ribb0001/workspace/SudokuFX/sudokufxTest.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="/home/Etudiants/ribb0001/workspace/SudokuFX/jar/jCheckClass.jar"/>
+	<classpathentry kind="lib" path="/home/Etudiants/ribb0001/workspace/SudokuFX/jar/sudokufx.jar"/>
+	<classpathentry kind="lib" path="/home/Etudiants/ribb0001/workspace/SudokuFX/jar/sudokufxTest.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
