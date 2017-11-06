@@ -26,7 +26,7 @@ public class Cell implements CellValue {
 
 	@Override
 	public boolean isInitialValue() {
-		if(this.value != 0){
+		if(this.value != 0 && this.initialValue == true){
 			return true;
 		}
 		else{
